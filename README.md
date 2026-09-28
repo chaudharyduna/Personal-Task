@@ -1,16 +1,72 @@
-# React + Vite
+# TaskFlow – Personal Task Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+TaskFlow is a single-page To-Do application built with React and Vite. It lets you add, edit, complete and delete tasks, organize them by category and priority, and keeps everything saved in your browser so nothing is lost on refresh.
 
-Currently, two official plugins are available:
+## Screenshots
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**Home screen (empty state)**
 
-## React Compiler
+![TaskFlow home screen with no tasks](Screenshots/home-empty-state.png)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Task list with categories and priorities**
 
-## Expanding the ESLint configuration
+![TaskFlow task list showing Urgent and Work tasks](Screenshots/task-list.png)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Features
+
+- Add, edit, delete, and mark tasks as complete
+- Filter tasks by status (All / Active / Completed)
+- Organize tasks by category (Work, Personal, Urgent)
+- Set a priority (Low, Medium, High) for each task
+- Tasks persist in `localStorage` and survive a page refresh
+- Live count of remaining and completed tasks
+- "Clear Completed" button to remove finished tasks in one click
+- Daily progress bar showing the completion percentage
+- Dark / light theme toggle (remembered between visits)
+- Empty state message when no tasks match the filters
+- Responsive layout for desktop and mobile
+
+## Technologies Used
+
+- React 18 (functional components and hooks)
+- React Router DOM 6
+- Vite
+- CSS (custom styles)
+- ESLint
+
+## Project Structure
+
+```
+src/
+├── Components/   Header, TaskForm, FilterBar, TaskList, TaskItem, Footer
+├── hooks/        useLocalStorage (custom hook)
+├── pages/        Layout, Home
+├── assets/       Style.css
+├── MyRoute.jsx   Router setup
+└── main.jsx      App entry point
+```
+
+## Setup Instructions
+
+1. Clone the repository:
+   ```bash
+   git clone <your-repository-url>
+   cd todo-app
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+4. Open the local URL shown in the terminal (usually `http://localhost:5173`).
+
+To create a production build, run `npm run build`.
+
+## Known Limitations
+
+- Tasks are stored only in the browser's `localStorage`, so they are not synced across devices.
+- Categories are fixed to Work, Personal, and Urgent (custom categories are not supported yet).
+- Drag-and-drop reordering and due dates are not implemented.
